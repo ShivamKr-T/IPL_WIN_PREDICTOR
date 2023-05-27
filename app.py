@@ -1,7 +1,13 @@
+import pip
 import streamlit as st
 import pickle
 import pandas as pd
 
+if hasattr(pip, 'main'):
+    pip.main(['install', "scikit-learn"])
+else:
+    pip._internal.main(['install', "scikit-learn"])
+    
 teams = ['Sunrisers Hyderabad',
  'Mumbai Indians',
  'Gujarat Titans',
