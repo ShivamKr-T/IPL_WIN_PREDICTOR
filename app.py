@@ -7,7 +7,7 @@ if hasattr(pip, 'main'):
     pip.main(['install', "scikit-learn"])
 else:
     pip._internal.main(['install', "scikit-learn"])
-    
+
 teams = ['Sunrisers Hyderabad',
  'Mumbai Indians',
  'Gujarat Titans',
@@ -40,18 +40,19 @@ with col2:
 
 selected_city = st.selectbox('Select Home City',sorted(cities))
 
-target = st.number_input('Target')
+target = st.number_input('Target', value=0, step=1, format='%d')
+
 
 col3, col4, col5 =st.columns(3)
 
 with col3:
-    score = st.number_input('Score')
+    score = st.number_input('Score', value=0, step=1, format='%d')
 
 with col4:
-    overs = st.number_input('Overs completed')
+    overs = st.number_input('Overs completed', value=0, min_value=0, max_value=19, step=1, format='%d')
 
 with col5:
-    wickets = st.number_input('Wickets')
+    wickets = st.number_input('Wickets', value=0, min_value=0, max_value=9, step=1, format='%d')
 
 if st.button('Predict Probability'):
     runs_left = target - score
